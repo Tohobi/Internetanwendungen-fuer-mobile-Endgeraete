@@ -10,6 +10,7 @@ class ViewController {
         // console.log("oncreate(): root is: ", this.root);
         this.prepareViewSwitching();
         this.prepareFading();
+        this.prepareListItemSelection();
     }
 
     prepareViewSwitching() {
@@ -24,9 +25,24 @@ class ViewController {
     prepareFading() {
         // const fadingTrigger = this.root.querySelector("footer #myapp-fadingTrigger");
         const fadingTrigger = document.getElementById("myapp-fadingTrigger");
-        const fadingTarget = this.root;
+        const fadingTarget = this.root.getElementsByTagName("main")[0];
         fadingTrigger.onclick = () => {
-            
+            fadingTarget.classList.toggle("myapp-faded");
+            const onTransitionend = () => {
+                fadingTarget.classList.toggle("myapp-faded");
+                fadingTarget.removeEventListener("transitionend", onTransitionend);
+            }
+            fadingTarget.addEventListener("transitionend", onTransitionend);
+        }
+    }
+
+    prepareListItemSelection() {
+        const listItems = this.root.getElementsByTagName("li");
+        for (var i = 0; i < listItems.length; i++) {
+            let currentLi = listItems[i];
+            currentLi.onclick = () => {
+                
+            }
         }
     }
 

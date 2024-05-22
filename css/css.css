@@ -203,6 +203,12 @@ li img {
 
 /* fading */
 
-.myapp-faded {
+main.myapp-faded {
     opacity: 0;
+    transition: opacity 3s;
+}
+
+main {
+    opacity: 1;
+    transition: opacity 1s;
 }
