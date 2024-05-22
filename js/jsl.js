@@ -38,10 +38,10 @@ class ViewController {
 
     prepareListItemSelection() {
         const listItems = this.root.getElementsByTagName("li");
-        for (var i = 0; i < listItems.length; i++) {
+        for (let i = 0; i < listItems.length; i++) {
             let currentLi = listItems[i];
             currentLi.onclick = () => {
-                
+                alert("selected: " + currentLi.querySelector("h2").textContent);
             }
         }
     }
