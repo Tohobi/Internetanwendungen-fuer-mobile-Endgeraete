@@ -7,16 +7,26 @@ class ViewController {
     }
 
     oncreate() {
-        console.log("oncreate(): root is: ", this.root);
-        this.initialiseViewSwitching();
+        // console.log("oncreate(): root is: ", this.root);
+        this.prepareViewSwitching();
+        this.prepareFading();
     }
 
-    initialiseViewSwitching() {
-        const switchElement = this.root.getElementsByTagName("header")[0];
-        console.log("switchElement: ", switchElement);
+    prepareViewSwitching() {
+        const switchTrigger = this.root.getElementsByTagName("header")[0];
+        // console.log("switchElement: ", switchTrigger);
         const switchTarget = this.root;
-        switchElement.onclick = () => {
-            this.root.classList.toggle("myapp-tiles");
+        switchTrigger.onclick = () => {
+            switchTarget.classList.toggle("myapp-tiles");
+        }
+    }
+
+    prepareFading() {
+        // const fadingTrigger = this.root.querySelector("footer #myapp-fadingTrigger");
+        const fadingTrigger = document.getElementById("myapp-fadingTrigger");
+        const fadingTarget = this.root;
+        fadingTrigger.onclick = () => {
+            
         }
     }
 

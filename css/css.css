@@ -200,3 +200,9 @@ li img {
         --myapp-tiles-number-of-columns: 10;
     }
 }
+
+/* fading */
+
+.myapp-faded {
+    opacity: 0;
+}
