@@ -212,3 +212,9 @@ main {
     opacity: 1;
     transition: opacity 1s;
 }
+
+/* dynamic list elements */
+
+.myapp-template {
+    display: none;
+}

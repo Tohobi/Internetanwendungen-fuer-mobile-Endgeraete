@@ -58,6 +58,12 @@ class ViewController {
     prepareAddingNewListItems() {
         const addingTrigger = this.root.querySelector(".myapp-img-add");
         this.listRoot = this.root.querySelector("ul");
+
+        this.dollyListElement = this.listRoot.querySelector("template");
+        console.log("read li element, now called dolly: ", this.dollyListElement);
+        // this.dollyListElement.parentNode.removeChild(this.dollyListElement);
+        // this.dollyListElement.classList.remove("myapp-template");
+
         addingTrigger.onclick = (evt) => {
             evt.stopPropagation();
             // alert("add");
@@ -67,25 +73,33 @@ class ViewController {
             const selectedSrc = srcoptions[Date.now() % srcoptions.length];
             const selectedTitle = titleoptions[Date.now() % titleoptions.length];
 
-            this.addNewListItem("./data/img/" + selectedSrc, selectedTitle);
+            this.addNewListItem({src: "./data/img/" + selectedSrc, title: selectedTitle});
         }
     }
 
-    addNewListItem(src, title) {
+    addNewListItem(obj) {
         // this.listRoot.innerHTML += "<li><img class=\"myapp-align-left\" src=\"" + src + "\" alt=\"\"><h2 class=\"myapp-align-left\">" + title + "</h2><button class=\"myapp-imgbutton myapp-img-edit myapp-align-right\">edit</button></li>";
 
-        const li = document.createElement("li");
-        const img = document.createElement("img");
-        li.appendChild(img);
-        const h2 = document.createElement("h2");
-        li.appendChild(h2);
-        const button = document.createElement("button");
-        li.appendChild(button);
-        img.src = src;
-        img.classList.add("myapp-align-left");
-        h2.textContent = title;
-        h2.classList.add("myapp-align-left");
-        button.setAttribute("class", "myapp-imgbutton myapp-img-edit myapp-align-right");
+        // const li = document.createElement("li");
+        // const img = document.createElement("img");
+        // li.appendChild(img);
+        // const h2 = document.createElement("h2");
+        // li.appendChild(h2);
+        // const button = document.createElement("button");
+        // li.appendChild(button);
+        // img.src = obj.src;
+        // img.classList.add("myapp-align-left");
+        // h2.textContent = obj.title;
+        // h2.classList.add("myapp-align-left");
+        // button.setAttribute("class", "myapp-imgbutton myapp-img-edit myapp-align-right");
+
+        // const li = this.dollyListElement.cloneNode(true);
+        // li.querySelector("img").setAttribute("src", obj.src);
+        // li.querySelector("h2").textContent = obj.title;
+
+        const li = document.importNode(this.dollyListElement.content, true);
+        li.querySelector("img").setAttribute("src", obj.src);
+        li.querySelector("h2").textContent = obj.title;
 
         this.listRoot.appendChild(li);
     }
