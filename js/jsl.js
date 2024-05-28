@@ -12,6 +12,7 @@ class ViewController {
         this.prepareFading();
         this.prepareListItemSelection();
         this.prepareAddingNewListItems();
+        this.loadAndDisplayListItems();
     }
 
     prepareViewSwitching() {
@@ -102,6 +103,19 @@ class ViewController {
         li.querySelector("h2").textContent = obj.title;
 
         this.listRoot.appendChild(li);
+    }
+
+    loadAndDisplayListItems() {
+        const request = new XMLHttpRequest();
+        request.open("GET", "data/listitems.json");
+        request.send();
+        request.onload = () => {
+            const responseText = request.responseText;
+            console.log("responseText: ", responseText);
+            const responseItems = JSON.parse(responseText);
+            console.log("responseItems: ", responseItems);
+            responseItems.forEach(item => this.addNewListItem(item));
+        }
     }
 
 }
