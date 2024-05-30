@@ -16,7 +16,7 @@ class ViewController {
     }
 
     prepareViewSwitching() {
-        const switchTrigger = this.root.getElementsByTagName("header")[0];
+        const switchTrigger = document.getElementById("myapp-switchingTrigger");
         // console.log("switchElement: ", switchTrigger);
         const switchTarget = this.root;
         switchTrigger.onclick = () => {
