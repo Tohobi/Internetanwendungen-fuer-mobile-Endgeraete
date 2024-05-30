@@ -2,10 +2,10 @@
 :root {
     --myapp-color-background: limegreen;
     --myapp-header-height: 60px;
-    --myapp-header-background: rgb(60,60,60);
+    --myapp-header-background: rgb(255,255,255);
     --myapp-footer-height: 50px;
-    --myapp-footer-background: rgb(15,15,15);
-    --myapp-main-background: rgb(45,45,45);
+    --myapp-footer-background: rgb(255,255,255);
+    --myapp-main-background: rgb(255,255,255);
     --myapp-imgbutton-size: 40px;
     --myapp-imgbutton-imgsize: 30px;
     --myapp-default-space: 10px;
@@ -18,7 +18,7 @@ html, body {
     background-color: var(--myapp-color-background);
     margin: 0px;
     font-family: "Avenir Medium", sans-serif;
-    color: white;
+    color: black;
     width: 100%;
     max-width: 100%;
     height: 100%;
@@ -41,10 +41,11 @@ html, body {
 header {
     height: var(--myapp-header-height);
     background-color: var(--myapp-header-background);
+    border-bottom: 3px solid grey;
 }
 
 main {
-    height: calc(100vh - (var(--myapp-header-height) + var(--myapp-footer-height)));
+    height: calc(100vh - (var(--myapp-header-height) + var(--myapp-footer-height)) - 6px);
     background-color: var(--myapp-main-background);
     overflow-y: scroll;
 }
@@ -52,6 +53,7 @@ main {
 footer {
     height: var(--myapp-footer-height);
     background-color: var(--myapp-footer-background);
+    border-top: 3px solid orange;
 }
 
 header h1 {
@@ -82,7 +84,19 @@ header h1 {
     background-size: var(--myapp-imgbutton-imgsize) var(--myapp-imgbutton-imgsize);
     height: var(--myapp-imgbutton-size);
     width: var(--myapp-imgbutton-size);
-    filter: invert(90%);
+    filter: invert(40%);
+}
+
+.myapp-imgbutton-repeat {
+    background-color: transparent;
+    font-size: 0;
+    border: none;
+    background-repeat: repeat;
+    background-position: center;
+    background-size: var(--myapp-imgbutton-imgsize) var(--myapp-imgbutton-imgsize);
+    height: var(--myapp-imgbutton-size);
+    width: var(--myapp-imgbutton-size);
+    filter: invert(40%);
 }
 
 header .myapp-imgbutton {
@@ -97,8 +111,8 @@ footer .myapp-imgbutton {
     background-image: url("./img/png/menu_FILL0_wght400_GRAD0_opsz24.png");
 }
 
-.myapp-img-remove {
-    background-image: url("./img/png/delete_FILL0_wght400_GRAD0_opsz24.png");
+.myapp-img-tile {
+    background-image: url("./img/png/more_vert_FILL0_wght400_GRAD0_opsz24.png");
 }
 
 .myapp-img-add {
@@ -113,6 +127,10 @@ footer .myapp-imgbutton {
     background-image: url("./img/png/edit_FILL0_wght400_GRAD0_opsz24.png");
 }
 
+.myapp-img-logout {
+    background-image: url("./img/png/logout_FILL0_wght400_GRAD0_opsz24.png");
+}
+
 p {
     margin: 0;
     padding: var(--myapp-default-space);
@@ -124,6 +142,7 @@ ul {
     list-style: none;
     padding: 0;
     margin: 0;
+    border-top: 15px solid rgb(200,200,200);
 }
 
 li {
