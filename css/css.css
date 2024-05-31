@@ -75,6 +75,15 @@ header h1 {
     float: right;
 }
 
+.myapp-align-bottom {
+    float: bottom;
+}
+
+.myapp-align-top {
+    float: top;
+}
+    
+
 .myapp-imgbutton {
     background-color: transparent;
     font-size: 0;
@@ -131,10 +140,14 @@ footer .myapp-imgbutton {
     background-image: url("./img/png/logout_FILL0_wght400_GRAD0_opsz24.png");
 }
 
-p {
+.myapp-img-play {
+    background-image: url("./img/png/play_arrow_FILL0_wght400_GRAD0_opsz24.png");
+}
+
+/* p {
     margin: 0;
     padding: var(--myapp-default-space);
-}
+} */
 
 /* Listenansicht */
 
@@ -154,7 +167,7 @@ li {
 
 li h2 {
     font-weight: normal;
-    font-size: 18pt;
+    font-size: 14pt;
     margin: 0;
     margin-left: var(--myapp-default-space);
 }
@@ -168,6 +181,30 @@ li img {
     width: var(--myapp-li-imgsize);
     margin-top: calc((var(--myapp-li-height) - var(--myapp-li-imgsize)) / 2);
     object-fit: cover;
+}
+
+li:first-child {
+    border-top: none;
+}
+
+li:last-child {
+    border-bottom: none;
+}
+
+li #owner {
+    font-weight: normal;
+    font-size: 10pt;
+    color: rgb(200,200,200);
+    margin: 0;
+    margin-left: var(--myapp-default-space);
+}
+
+li #tags {
+    font-weight: normal;
+    font-size: 10pt;
+    color: rgb(200,200,200);
+    margin: 0;
+    margin-left: var(--myapp-default-space);
 }
 
 /* Tiles */

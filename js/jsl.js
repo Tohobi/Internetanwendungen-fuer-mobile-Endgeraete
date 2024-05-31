@@ -101,6 +101,8 @@ class ViewController {
         const li = document.importNode(this.dollyListElement.content, true);
         li.querySelector("img").setAttribute("src", obj.src);
         li.querySelector("h2").textContent = obj.title;
+        li.getElementById("owner").textContent = obj.owner;
+        li.getElementById("tags").textContent = obj.numOfTags;
 
         this.listRoot.appendChild(li);
     }
