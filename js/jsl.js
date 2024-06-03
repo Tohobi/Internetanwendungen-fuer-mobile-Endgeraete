@@ -103,6 +103,7 @@ class ViewController {
         li.querySelector("h2").textContent = obj.title;
         li.getElementById("owner").textContent = obj.owner;
         li.getElementById("tags").textContent = obj.numOfTags;
+        li.getElementById("date").textContent = obj.added;
 
         this.listRoot.appendChild(li);
     }

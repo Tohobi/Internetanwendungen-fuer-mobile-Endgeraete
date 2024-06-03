@@ -9,9 +9,8 @@
     --myapp-imgbutton-size: 40px;
     --myapp-imgbutton-imgsize: 30px;
     --myapp-default-space: 10px;
-    --myapp-li-height: 65px;
     --myapp-li-bordercolor: rgb(120,120,120);
-    --myapp-li-imgsize: 45px;
+    --myapp-li-imgsize: 80px;
 }
 
 html, body {
@@ -26,18 +25,13 @@ html, body {
 }
 
 /* block text selection */
-
 * {
     user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
 }
 
-
-/*
- * base structure
- */
-
+/* base structure */
 header {
     height: var(--myapp-header-height);
     background-color: var(--myapp-header-background);
@@ -66,7 +60,6 @@ header h1 {
 }
 
 /* buttons */
-
 .myapp-align-left {
     float: left;
 }
@@ -74,15 +67,6 @@ header h1 {
 .myapp-align-right {
     float: right;
 }
-
-.myapp-align-bottom {
-    float: bottom;
-}
-
-.myapp-align-top {
-    float: top;
-}
-    
 
 .myapp-imgbutton {
     background-color: transparent;
@@ -142,15 +126,10 @@ footer .myapp-imgbutton {
 
 .myapp-img-play {
     background-image: url("./img/png/play_arrow_FILL0_wght400_GRAD0_opsz24.png");
+
 }
 
-/* p {
-    margin: 0;
-    padding: var(--myapp-default-space);
-} */
-
 /* Listenansicht */
-
 ul {
     list-style: none;
     padding: 0;
@@ -159,56 +138,87 @@ ul {
 }
 
 li {
-    height: var(--myapp-li-height);
-    line-height: var(--myapp-li-height);
+    /*display: flex;*/
+    align-items: center;
     border-bottom: 1px solid var(--myapp-li-bordercolor);
-    padding-left: var(--myapp-default-space);
+    padding: var(--myapp-default-space);
+}
+
+li img {
+    height: var(--myapp-li-imgsize);
+    width: var(--myapp-li-imgsize);
+    object-fit: cover;
+    margin-right: var(--myapp-default-space);
+}
+
+li div {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(1, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    position: relative;
+}
+
+li div div .myapp-imgbutton{
+    margin: 0;
+}
+
+li div #toprow {
+    grid-area: 1 / 1 / 2 / 2;
+    margin: 0;
+    padding-bottom: 10px;
+    /* display: flex; */
+    #date {
+        right: 0px;
+        padding-right: 20px;
+        position: absolute;
+    }
+    p {
+        margin: 0;
+    }
+}
+
+li div h2 {
+    grid-area: 2 / 1 / 2 / 2;
+}
+
+li div #bottomrow {
+    grid-area: 3 / 1 / 2 / 2;
+    display: flex;
+    padding-top: 20px;
+}
+
+li div #edit {
+    grid-area:2 / 1 / 2 / 2;
+    position: absolute;
+    bottom: 0px;
+    right: 0px
+}
+
+li div div #tags {
+    align-content: center;
+    padding: 0;
+    margin: 0;
 }
 
 li h2 {
     font-weight: normal;
     font-size: 14pt;
     margin: 0;
-    margin-left: var(--myapp-default-space);
 }
 
-li .myapp-imgbutton {
-    margin-top: calc((var(--myapp-li-height) - var(--myapp-imgbutton-size)) / 2);
-}
-
-li img {
-    height: var(--myapp-li-imgsize);
-    width: var(--myapp-li-imgsize);
-    margin-top: calc((var(--myapp-li-height) - var(--myapp-li-imgsize)) / 2);
-    object-fit: cover;
-}
-
-li:first-child {
-    border-top: none;
-}
-
-li:last-child {
-    border-bottom: none;
-}
-
-li #owner {
+li div #owner, li #tags, li #date {
     font-weight: normal;
     font-size: 10pt;
     color: rgb(200,200,200);
-    margin: 0;
-    margin-left: var(--myapp-default-space);
 }
 
-li #tags {
-    font-weight: normal;
-    font-size: 10pt;
-    color: rgb(200,200,200);
-    margin: 0;
-    margin-left: var(--myapp-default-space);
+.myapp-imgbutton {
+    margin-left: auto; /* Pushes button to the right end */
 }
 
 /* Tiles */
-
 .myapp-tiles li * {
     display: none;
 }
@@ -218,7 +228,7 @@ li #tags {
     margin-top: var(--myapp-default-space);
     display: inline-block;
     border: none;
-    /* --myapp-tiles-number-of-columns: 3; */
+    --myapp-tiles-number-of-columns: 3;
     --myapp-tiles-size: calc((100vw - ((var(--myapp-tiles-number-of-columns) + 1) * var(--myapp-default-space))) / var(--myapp-tiles-number-of-columns));
     height: var(--myapp-tiles-size);
     width: var(--myapp-tiles-size);
@@ -258,7 +268,6 @@ li #tags {
 }
 
 /* fading */
-
 main.myapp-faded {
     opacity: 0;
     transition: opacity 3s;
@@ -270,7 +279,6 @@ main {
 }
 
 /* dynamic list elements */
-
 .myapp-template {
     display: none;
 }
