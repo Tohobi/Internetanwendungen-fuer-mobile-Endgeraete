@@ -19,9 +19,19 @@ class ViewController {
         const switchTrigger = document.getElementById("myapp-switchingTrigger");
         // console.log("switchElement: ", switchTrigger);
         const switchTarget = this.root;
+        const fadingTarget = this.root.getElementsByTagName("main")[0];
         switchTrigger.onclick = () => {
-            switchTarget.classList.toggle("myapp-tiles");
-            switchTrigger.classList.toggle("list-view");
+            fadingTarget.classList.toggle("myapp-faded");
+            const onTransitionend = () => {
+                fadingTarget.classList.toggle("myapp-faded");
+                fadingTarget.removeEventListener("transitionend", onTransitionend);
+            }
+            fadingTarget.addEventListener("transitionend", onTransitionend);
+            // hier muss eine Art sleep rein
+            setTimeout(() => {
+                switchTarget.classList.toggle("myapp-tiles");
+                switchTrigger.classList.toggle("list-view");
+            }, 2000);
         }
     }
 

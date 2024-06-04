@@ -1,6 +1,6 @@
 /* variable declarations */
 :root {
-    --myapp-color-background: limegreen;
+    --myapp-color-background: white;
     --myapp-header-height: 60px;
     --myapp-header-background: rgb(255,255,255);
     --myapp-footer-height: 50px;
@@ -278,7 +278,7 @@ li div #owner, li #tags, li #date {
 /* fading */
 main.myapp-faded {
     opacity: 0;
-    transition: opacity 3s;
+    transition: opacity 2s;
 }
 
 main {
