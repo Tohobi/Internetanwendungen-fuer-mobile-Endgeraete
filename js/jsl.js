@@ -50,10 +50,14 @@ class ViewController {
     }
 
     prepareListItemSelection() {
-        const listItems = this.root.getElementsByTagName("li");
+        // const listItems = this.root.getElementsByTagName("li");
         const onclickListener = (evt) => {
-            // console.log("evt: ", evt);
-            alert("selected: " + evt.target.closest("li").querySelector("h2").textContent);
+            if (!evt.target.closest("button.myapp-img-tile")) {
+                // console.log("evt: ", evt);
+                alert("selected: " + evt.target.closest("li").querySelector("h2").textContent);
+            } else {
+                alert("options: " + evt.target.closest("li").querySelector("h2").textContent + " - " + evt.target.closest("li").querySelector("img").src);
+            }
         };
         const listRoot = this.root.querySelector("ul");
         listRoot.onclick = onclickListener;
