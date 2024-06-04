@@ -222,6 +222,14 @@ li div #owner, li #tags, li #date {
     color: rgb(200,200,200);
 }
 
+li:first-child {
+    border-top: none;
+}
+
+li:last-child {
+    border-bottom: none;
+}
+
 .myapp-imgbutton {
     margin-left: auto; /* Pushes button to the right end */
 }

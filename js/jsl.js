@@ -9,10 +9,11 @@ class ViewController {
     oncreate() {
         // console.log("oncreate(): root is: ", this.root);
         this.prepareViewSwitching();
-        this.prepareFading();
+        // this.prepareFading();
         this.prepareListItemSelection();
         this.prepareAddingNewListItems();
         this.loadAndDisplayListItems();
+        this.prepareReload();
     }
 
     prepareViewSwitching() {
@@ -35,19 +36,19 @@ class ViewController {
         }
     }
 
-    prepareFading() {
+    // prepareFading() {
         // const fadingTrigger = this.root.querySelector("footer #myapp-fadingTrigger");
-        const fadingTrigger = document.getElementById("myapp-fadingTrigger");
-        const fadingTarget = this.root.getElementsByTagName("main")[0];
-        fadingTrigger.onclick = () => {
-            fadingTarget.classList.toggle("myapp-faded");
-            const onTransitionend = () => {
-                fadingTarget.classList.toggle("myapp-faded");
-                fadingTarget.removeEventListener("transitionend", onTransitionend);
-            }
-            fadingTarget.addEventListener("transitionend", onTransitionend);
-        }
-    }
+        // const fadingTrigger = document.getElementById("myapp-fadingTrigger");
+        // const fadingTarget = this.root.getElementsByTagName("main")[0];
+        // fadingTrigger.onclick = () => {
+        //     fadingTarget.classList.toggle("myapp-faded");
+        //     const onTransitionend = () => {
+        //         fadingTarget.classList.toggle("myapp-faded");
+        //         fadingTarget.removeEventListener("transitionend", onTransitionend);
+        //     }
+        //     fadingTarget.addEventListener("transitionend", onTransitionend);
+        // }
+    // }
 
     prepareListItemSelection() {
         // const listItems = this.root.getElementsByTagName("li");
@@ -56,7 +57,12 @@ class ViewController {
                 // console.log("evt: ", evt);
                 alert("selected: " + evt.target.closest("li").querySelector("h2").textContent);
             } else {
-                alert("options: " + evt.target.closest("li").querySelector("h2").textContent + " - " + evt.target.closest("li").querySelector("img").src);
+                const liElement = evt.target.closest("li");
+                const title = liElement.querySelector("h2").textContent;
+                const src = liElement.querySelector("img").src;
+                if (confirm(`Soll ${title} - ${src} entfernt werden?`)) {
+                    liElement.remove();
+                }
             }
         };
         const listRoot = this.root.querySelector("ul");
@@ -85,11 +91,17 @@ class ViewController {
             // alert("add");
             const srcoptions = ["1.jpg", "2.jpg", "3.jpg"];
             const titleoptions = ["direm", "lopsum", "olor", "adispiscing", "elit", "consectetur"];
+            const owneroptions = ["owner1", "owner2", "owner3", "owner4", "owner5", "owner6", "owner7", "owner8", "owner9", "owner10"];
+            const numoftagsoptions = Math.floor(Math.random() * 10);
+            const addedoptions = new Date().toLocaleDateString();
 
             const selectedSrc = srcoptions[Date.now() % srcoptions.length];
             const selectedTitle = titleoptions[Date.now() % titleoptions.length];
+            const selectedOwner = owneroptions[Date.now() % owneroptions.length];
+            const selectedNumOfTags = numoftagsoptions;
+            const selectedAdded = addedoptions;
 
-            this.addNewListItem({src: "./data/img/" + selectedSrc, title: selectedTitle});
+            this.addNewListItem({src: "./data/img/" + selectedSrc, title: selectedTitle, owner: selectedOwner, numOfTags: selectedNumOfTags, added: selectedAdded});
         }
     }
 
@@ -133,6 +145,16 @@ class ViewController {
             const responseItems = JSON.parse(responseText);
             console.log("responseItems: ", responseItems);
             responseItems.forEach(item => this.addNewListItem(item));
+        }
+    }
+
+    prepareReload() {
+        const reloadTrigger = document.getElementById("myapp-reloadTrigger");
+        reloadTrigger.onclick = () => {
+            while(this.listRoot.firstChild) {
+                this.listRoot.removeChild(this.listRoot.firstChild);
+            }
+            this.loadAndDisplayListItems();
         }
     }
 
