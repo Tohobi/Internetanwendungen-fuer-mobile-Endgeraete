@@ -21,6 +21,7 @@ class ViewController {
         const switchTarget = this.root;
         switchTrigger.onclick = () => {
             switchTarget.classList.toggle("myapp-tiles");
+            switchTrigger.classList.toggle("list-view");
         }
     }
 
