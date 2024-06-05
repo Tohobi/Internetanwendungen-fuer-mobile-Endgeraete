@@ -18,9 +18,9 @@ class ViewController {
 
     prepareViewSwitching() {
         const switchTrigger = document.getElementById("myapp-switchingTrigger");
-        // console.log("switchElement: ", switchTrigger);
         const switchTarget = this.root;
         const fadingTarget = this.root.getElementsByTagName("main")[0];
+
         switchTrigger.onclick = () => {
             fadingTarget.classList.toggle("myapp-faded");
             const onTransitionend = () => {
@@ -28,10 +28,15 @@ class ViewController {
                 fadingTarget.removeEventListener("transitionend", onTransitionend);
             }
             fadingTarget.addEventListener("transitionend", onTransitionend);
-            // hier muss eine Art sleep rein
+
             setTimeout(() => {
                 switchTarget.classList.toggle("myapp-tiles");
                 switchTrigger.classList.toggle("list-view");
+
+                const tileViews = document.querySelectorAll(".myapp-tile-view");
+                tileViews.forEach(tileView => {
+                    tileView.classList.toggle("myapp-tile-view-visible");
+                });
             }, 2000);
         }
     }
@@ -124,14 +129,16 @@ class ViewController {
         // const li = this.dollyListElement.cloneNode(true);
         // li.querySelector("img").setAttribute("src", obj.src);
         // li.querySelector("h2").textContent = obj.title;
-
         const li = document.importNode(this.dollyListElement.content, true);
         li.querySelector("img").setAttribute("src", obj.src);
         li.querySelector("h2").textContent = obj.title;
         li.getElementById("owner").textContent = obj.owner;
         li.getElementById("tags").textContent = obj.numOfTags;
         li.getElementById("date").textContent = obj.added;
-
+        const visibleTile = document.querySelector(".myapp-tiles");
+        if (visibleTile) {
+            li.querySelector("div").setAttribute("class","myapp-tile-view myapp-tile-view-visible");
+        }
         this.listRoot.appendChild(li);
     }
 
