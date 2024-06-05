@@ -232,7 +232,7 @@ li:last-child {
 }
 
 .myapp-imgbutton {
-    margin-left: auto; /* Pushes button to the right end */
+    margin-left: auto;
 }
 
 /* Tiles */
