@@ -3,7 +3,7 @@ Dort habe ich für die erste Abgabe diese Repo erstellt und damit gearbeitet, da
 An dem Projekt selbst habe ich mit Webstorm gearbeitet und auch von dort aus die Git-Aktionen ausgeführt.
 
 Hier nochmal Screenshots, wie ich ein neues Projekt zu Webstorm hinzufügen würde:
-![image](/Screenshots_SWT/Webstorm-open new project from version control.png?raw=true)
+![image](/Screenshots_SWT/Webstorm-open%20new%20project%20from%20version%20control.png?raw=true)
 ![image](/Screenshots_SWT/Webstorm-clone.png?raw=true)
 
 Hier wie ich aus Webstorm heraus Changes Pushen würde:
