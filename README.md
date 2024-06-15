@@ -11,3 +11,9 @@ Hier wie ich aus Webstorm heraus Changes Pushen würde:
 ![image](/Screenshots_SWT/Webstorm-Push.png?raw=true)
 ![image](/Screenshots_SWT/Webstorm-Push2.png?raw=true)
 
+Im nächsten Schritt habe ich ein localbranch angelegt und weiter auf diesem gearbeitet:
+![image](/Screenshots_SWT/Webstorm-push%20local%20branch1.png?raw=true)
+
+Nachdem ich einen localbranch angelegt hatte, habe ich das Zurücksetzen zu einem alten Commit getestet:
+![image](/Screenshots_SWT/Webstorm-Zuuecksetzen%20zu%20alten%20commit.png?raw=true)
+
