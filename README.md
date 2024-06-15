@@ -7,6 +7,7 @@ Hier nochmal Screenshots, wie ich ein neues Projekt zu Webstorm hinzufügen wür
 ![image](/Screenshots_SWT/Webstorm-clone.png?raw=true)
 
 Hier wie ich aus Webstorm heraus Changes Pushen würde:
+
 ![image](/Screenshots_SWT/Webstorm-Commit.png?raw=true)
 ![image](/Screenshots_SWT/Webstorm-Push.png?raw=true)
 ![image](/Screenshots_SWT/Webstorm-Push2.png?raw=true)
