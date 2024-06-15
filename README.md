@@ -30,3 +30,5 @@ Der Status hat mir ausgegeben, dass ich noch einen change adden kann. Das habe i
 Für das Testen der Git-Remove Funktion habe ich eine Testdatei angelegt, die ich danach entfernt habe:
 ![image](/Screenshots_SWT/Webstorm-git%20remove.png?raw=true)
 
+Als Pull-Request habe ich eine Datei mit den Top 10 Global Artists erstellt, hier der Link zu der Pull-Request:
+https://github.com/edlich/education/pull/506
