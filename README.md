@@ -17,3 +17,6 @@ Im nächsten Schritt habe ich ein localbranch angelegt und weiter auf diesem gea
 Nachdem ich einen localbranch angelegt hatte, habe ich das Zurücksetzen zu einem alten Commit getestet:
 ![image](/Screenshots_SWT/Webstorm-Zuuecksetzen%20zu%20alten%20commit.png?raw=true)
 
+Danach bin ich über den gleichen Weg wieder zurück zum aktuellsten Commit und habe dann in den main branch zurückgewechselt und mein localbranch in den main branch gemerged:
+![image](/Screenshots_SWT/Webstorm-merge%20local%20into%20main.png?raw=true)
+
